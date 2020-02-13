@@ -1,0 +1,56 @@
+.adminheader {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex: 1;
+	padding: 1vw 0 1vw 10vw;
+	border-bottom: 1px solid grey;
+	position: relative;
+}
+.adminheader span {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.liAuth {
+	position: absolute;
+	right: 220px;
+}
+.liAuth button {
+	width: 100px;
+	height: 25px;
+	border-radius: 6px;
+	background-color: #004445;
+	color: #faf5e4;
+}
+
+ul.nav li {
+	list-style-type: none;
+	display: inline;
+	padding: 0 20px;
+	font-size: 24px;
+}
+
+.admincontent {
+	margin: 2vw 10vw;
+}
+
+ol.contentlist {
+	float: left;
+	width: 20vw;
+	margin: 0;
+}
+.contentdetail {
+	float: left;
+	border-left: 1px solid grey;
+	padding-left: 2vw;
+	max-width: 600px;
+}
+.contentdetail img {
+	max-width: 600px;
+}
+
+.details {
+	font-size: 12px;
+}
