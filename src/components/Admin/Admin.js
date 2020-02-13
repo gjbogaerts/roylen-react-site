@@ -1,10 +1,18 @@
 import React from 'react';
-import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+import {
+	Switch,
+	Route,
+	Link,
+	useRouteMatch,
+	useHistory
+} from 'react-router-dom';
 import Users from './Users';
 import Ads from './Ads';
+import fakeAuth from '../../auth/fakeAuth';
 
 const Admin = () => {
 	let { path, url } = useRouteMatch();
+	let history = useHistory();
 	return (
 		<div>
 			<ul>
@@ -13,6 +21,16 @@ const Admin = () => {
 				</li>
 				<li>
 					<Link to={`${url}/ads`}>Ads</Link>
+				</li>
+
+				<li>
+					<button
+						onClick={() => {
+							fakeAuth.signout(() => history.push('/'));
+						}}
+					>
+						Sign out
+					</button>
 				</li>
 			</ul>
 			<Switch>
