@@ -1,3 +1,9 @@
+## From Old ReadMe, but still topical...
+
+# roylen-react-site
+
+Public site just for display, plus admin for admin of ads and users
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
