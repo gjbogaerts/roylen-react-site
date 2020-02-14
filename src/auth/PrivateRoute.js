@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import fakeAuth from './fakeAuth';
+import Auth from './Auth';
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
@@ -9,7 +9,7 @@ function PrivateRoute({ children, ...rest }) {
 		<Route
 			{...rest}
 			render={({ location }) =>
-				fakeAuth.isAuthenticated ? (
+				Auth.isAuthenticated ? (
 					children
 				) : (
 					<Redirect

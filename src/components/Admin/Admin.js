@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import Users from './Users';
 import Ads from './Ads';
-import fakeAuth from '../../auth/fakeAuth';
+import Auth from '../../auth/Auth';
 import '../../styles/admin.css';
 
 const Admin = () => {
@@ -30,7 +30,7 @@ const Admin = () => {
 					<li className="liAuth">
 						<button
 							onClick={() => {
-								fakeAuth.signout(() => history.push('/'));
+								Auth.signout(() => history.push('/'));
 							}}
 						>
 							Sign out
