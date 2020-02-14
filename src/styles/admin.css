@@ -17,12 +17,21 @@
 	position: absolute;
 	right: 220px;
 }
-.liAuth button {
+button {
 	width: 100px;
 	height: 25px;
 	border-radius: 6px;
 	background-color: #004445;
 	color: #faf5e4;
+}
+
+button.alert {
+	background-color: crimson;
+	color: wheat;
+	font-size: 24px;
+	font-weight: bold;
+	width: 300px;
+	height: 30px;
 }
 
 ul.nav li {
@@ -36,7 +45,7 @@ ul.nav li {
 	margin: 2vw 10vw;
 }
 
-ol.contentlist {
+.contentlist {
 	float: left;
 	width: 20vw;
 	margin: 0;
@@ -53,4 +62,14 @@ ol.contentlist {
 
 .details {
 	font-size: 12px;
+}
+
+.search {
+	width: 200px;
+	height: 24px;
+	margin-right: 12px;
+}
+
+.searchbar {
+	flex-direction: row;
 }
