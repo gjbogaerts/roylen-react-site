@@ -21,9 +21,29 @@ const Ad = props => {
 	}, [id]);
 
 	const disAllow = async () => {
-		//const response = axios.post('/api/ads/disallow/', )
-		alert('TODO: implement backoffice for banning of ads');
-		console.log('clicked' + ad._id);
+		const response = await axios.post('/api/ads/forbid/', { id: ad._id });
+		if (response.status === 422) {
+			alert(response.data);
+		} else {
+			if (response.data.nModified === 1) {
+				alert('Change implemented');
+			} else {
+				alert('Check database; something likely went wrong.');
+			}
+		}
+	};
+
+	const allow = async () => {
+		const response = await axios.post('api/ads/unforbid', { id: ad._id });
+		if (response.status === 422) {
+			alert(response.data);
+		} else {
+			if (response.data.nModified === 1) {
+				alert('Change implemented');
+			} else {
+				alert('Check database; something likely went wrong.');
+			}
+		}
 	};
 
 	const renderAd = () => {
@@ -45,9 +65,15 @@ const Ad = props => {
 			return (
 				<div>
 					<p>
-						<button onClick={disAllow} className="alert">
-							Disallow this ad
-						</button>
+						{ad.isForbidden ? (
+							<button onClick={allow} className="alert">
+								Allow this ad
+							</button>
+						) : (
+							<button onClick={disAllow} className="alert">
+								Disallow this ad
+							</button>
+						)}
 					</p>
 					<h2>
 						{ad.title} ({ad.virtualPrice} nix, category: {ad.category})
