@@ -11,9 +11,9 @@ import Ad from './Ad';
 
 const Ads = props => {
 	let { path, url } = useRouteMatch();
+	const history = useHistory();
 	const [ads, setAds] = useState([]);
 	const [search, setSearch] = useState('');
-	const history = useHistory();
 
 	useEffect(() => {
 		const getAds = async () => {
@@ -24,12 +24,7 @@ const Ads = props => {
 	}, []);
 
 	const startSearch = () => {
-		// console.log(search);
-		// const response = await axios.get(`/api/ads/${search}`);
-		// console.log(response);
 		history.push(`${url}/${search}`);
-		// setAds(response.data);
-		// console.log(search, response);
 	};
 
 	const handleChange = ev => {
@@ -70,7 +65,6 @@ const Ads = props => {
 				<Route path={`${path}/:id`}>
 					<Ad />
 				</Route>
-				{/* <Route path={`${path}`} children={<Ad />} /> */}
 			</Switch>
 		</div>
 	);
