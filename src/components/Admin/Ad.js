@@ -21,7 +21,7 @@ const Ad = props => {
 	}, [id]);
 
 	const disAllow = async () => {
-		const response = await axios.post('/api/ads/forbid/', { id: ad._id });
+		const response = await axios.post('/api/admin/ads/forbid/', { id: ad._id });
 		if (response.status === 422) {
 			alert(response.data);
 		} else {
@@ -34,7 +34,7 @@ const Ad = props => {
 	};
 
 	const allow = async () => {
-		const response = await axios.post('api/ads/unforbid', { id: ad._id });
+		const response = await axios.post('api/admin/ads/unforbid', { id: ad._id });
 		if (response.status === 422) {
 			alert(response.data);
 		} else {

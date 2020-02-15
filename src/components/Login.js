@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-
 import Auth from '../auth/Auth';
 
 function LoginPage() {
 	let history = useHistory();
 	let location = useLocation();
+	let { from } = location.state || { from: { pathname: '/' } };
+
+	useEffect(() => {
+		const tryForToken = async () => {
+			const token = await sessionStorage.getItem('token');
+			if (token) {
+				Auth.setAuthentication();
+				if (Auth.isAuthenticated) {
+					history.replace(from);
+				}
+			}
+		};
+		tryForToken();
+	}, [from, history]);
+
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
 	const [dob, setDob] = useState('');
@@ -13,15 +27,17 @@ function LoginPage() {
 	const [fn, setFn] = useState('');
 	const [e, setE] = useState('');
 
-	let { from } = location.state || { from: { pathname: '/' } };
 	const login = () => {
 		try {
-			Auth.authenticate(dob, fn, ln, email, pw);
-			if (Auth.isAuthenticated) {
-				history.replace(from);
-			} else {
-				setE('Your credentials did not match. Try again.');
-			}
+			const authenticate = async () => {
+				Auth.authenticate(dob, fn, ln, email, pw);
+				if (Auth.isAuthenticated) {
+					history.replace(from);
+				} else {
+					setE('Your credentials did not match. Try again.');
+				}
+			};
+			authenticate();
 		} catch (err) {
 			setE('Your credentials did not match. Try again.');
 		}
@@ -46,26 +62,14 @@ function LoginPage() {
 		setPw(ev.target.value);
 	};
 
-	// let history = useHistory();
-
-	return Auth.isAuthenticated ? (
-		<p>
-			<button
-				onClick={() => {
-					Auth.signout(() => history.push('/'));
-				}}
-			>
-				Sign out
-			</button>
-		</p>
-	) : (
+	return (
 		<div>
 			{e !== '' ? <p>{e}</p> : null}
-			<input type="password" value={dob} onChange={onChangeDob} />
-			<input type="password" value={fn} onChange={onChangeFn} />
-			<input type="password" value={ln} onChange={onChangeLn} />
-			<input type="password" value={email} onChange={onChangeEmail} />
-			<input type="password" value={pw} onChange={onChangePw} />
+			<input type="password" name="a" value={dob} onChange={onChangeDob} />
+			<input type="password" name="b" value={fn} onChange={onChangeFn} />
+			<input type="password" name="c" value={ln} onChange={onChangeLn} />
+			<input type="password" name="d" value={email} onChange={onChangeEmail} />
+			<input type="password" name="e" value={pw} onChange={onChangePw} />
 			<button onClick={login}>Log in</button>
 		</div>
 	);

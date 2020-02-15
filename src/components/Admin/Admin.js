@@ -40,10 +40,7 @@ const Admin = () => {
 			</div>
 			<Switch>
 				<Route path={path} exact>
-					<h3>
-						Now we're in admin main page. Please. Choose where you want to go.
-						Now!! Pretty pleaseeeeee???!!
-					</h3>
+					<h3>Admin main page</h3>
 				</Route>
 				<Route path={`${path}/users`}>
 					<div className="admincontent">
