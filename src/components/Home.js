@@ -5,6 +5,9 @@ import screenshot1 from '../images/IMG_1456.PNG';
 import screenshot2 from '../images/IMG_1457.PNG';
 import screenshot3 from '../images/IMG_1458.PNG';
 import screenshot4 from '../images/IMG_1459.PNG';
+
+import { Link } from 'react-router-dom';
+
 const Home = () => {
   return (
     <div className="landingDiv">
@@ -19,9 +22,10 @@ const Home = () => {
       </p>
       <p>
         Niet bedoeld om zoveel mogelijk clicks te genereren of je zo lang
-        mogelijk in deze app te houden, maar om je leven net een klein beetje
-        eenvoudiger te maken, je wat geld te besparen, en in de tussentijd ook
-        nog iets goeds te doen voor de planeet.
+        mogelijk in deze app te houden (
+        <Link to="/privacy">lees onze privacy policy</Link>), maar om je leven
+        net een klein beetje eenvoudiger te maken, je wat geld te besparen, en
+        in de tussentijd ook nog iets goeds te doen voor de planeet.
       </p>
       <p className="downloadlinks">
         <span className="link1">

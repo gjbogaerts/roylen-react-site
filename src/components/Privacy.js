@@ -1,10 +1,7 @@
 import React from 'react';
 import '../App.css';
-import screenshot from '../images/IMG_1455.PNG';
-import screenshot1 from '../images/IMG_1456.PNG';
-import screenshot2 from '../images/IMG_1457.PNG';
-import screenshot3 from '../images/IMG_1458.PNG';
-import screenshot4 from '../images/IMG_1459.PNG';
+
+import { Link } from 'react-router-dom';
 const Privacy = () => {
   return (
     <div className="landingDiv">
@@ -37,6 +34,9 @@ const Privacy = () => {
         Wil je meer weten over onze privacy policy, of wil je weten welke
         informatie we van je hebben opgeslagen, dan kun je via de app contact
         met ons opnemen.
+      </p>
+      <p>
+        <Link to="/">Terug naar de homepage</Link>
       </p>
     </div>
   );
