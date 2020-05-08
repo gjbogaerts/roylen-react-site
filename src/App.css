@@ -1,8 +1,14 @@
 .landingDiv {
-	align-items: center;
-	justify-content: center;
-	width: 70%;
-	height: 50vw;
-	background-color: aquamarine;
-	margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 50vw;
+  margin: auto;
+  padding: 20px;
+}
+
+.downloadlinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
